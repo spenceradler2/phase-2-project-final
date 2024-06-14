@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import TravelPlanList from "./TravelPlanList.jsx";
+import NewTravelForm from "./NewTravelForm";
+import Navbar from './Navbar'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+  const [travelPlans, setTravelPlans] = useState([])
+  const [term, setTerm] = useState("")
+  let viewedTravelPlans
+
+  function addTravelPlans(newTravelPlan){
+    setTravelPlans([...travelPlans, newTravelPlan])
+  }
+
+  useEffect(() => {
+    fetch("http://localhost:3000/travelPlans")
+      .then((resp) => resp.json())
+      .then(data => {setTravelPlans(data)})
+    }, [])
+
+      
+      if(term === "Type a name to search for someone's travel plans...") {
+        viewedTravelPlans = travelPlans
+      } else {
+        viewedTravelPlans = travelPlans.filter(travelPlan => travelPlans.name.toLowerCase().includes(term.toLowerCase()))
+      }
+
+  return (
+    <div className="app">
+    <h1>Welcome to the travel plan website where you can share your travel plans and see everyone else's upcoming travel plans</h1>
+    <Navbar />
+    <NewTravelForm 
+      addTravelPlans={addTravelPlans}
+      />
+    <TravelPlanList 
+        travelPlans = {viewedTravelPlans}
+        setTerm={setTerm}
+        term={term}
+      />
+    </div>
+    
+)}
 export default App;

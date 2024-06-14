@@ -10,7 +10,7 @@ function NewTravelForm({newTravelPlan}) {
   }
     const [formData, setFormData] = useState(initialFormData)
     function handleChange(event) {  
-      const newFormDnata = {
+      const newFormData = {
         ...formData,
         [event.target.name]: event.target.value
       }

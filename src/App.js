@@ -28,6 +28,7 @@ function App() {
   return (
     <div className="app">
     <Navbar />
+    <br></br>
       <Outlet className="outlet" context={{
         travelPlans : viewedTravelPlans,
         addTravelPlan : addTravelPlan,

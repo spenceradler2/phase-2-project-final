@@ -27,6 +27,7 @@ function TravelPlanList( ) {
     <main>
       <h2>Travel Plans: </h2>
       <Search setTerm={setTerm} term={term}/>
+      <br></br>
       <div className="cards">
       {travelPlanCards}
       </div>

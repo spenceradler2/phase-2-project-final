@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="app">
     <Navbar />
-      <Outlet context={{
+      <Outlet className="outlet" context={{
         travelPlans : viewedTravelPlans,
         addTravelPlan : addTravelPlan,
         setTerm : setTerm,

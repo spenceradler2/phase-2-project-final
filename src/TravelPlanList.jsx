@@ -17,6 +17,7 @@ function TravelPlanList( ) {
     <h5>Location: {`${travelPlan.location}`}</h5>
     <h5>Date: {`${travelPlan.date}`}</h5>
     <h5>Map of Location:</h5>
+    <br></br>
     <iframe src={travelPlan.iframe} width="600" height="450" style={{border:0}}/>
     <div></div>
     <hr></hr>

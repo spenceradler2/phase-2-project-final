@@ -74,6 +74,7 @@ const {addTravelPlan} = useOutletContext()
       <ol>Go to the share option</ol>
       <ol>Go to embed iframe</ol>
       <ol>Copy and paste src without the quotes into the form location. See example below:</ol>
+      <br></br>
       <ol> https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13222607.363026315!2d-18.82697955!3d35.99157515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb32242dbf4226d5%3A0x2ab84b091c4ef041!2sPortugal!5e0!3m2!1sen!2sus!4v1718314236955!5m2!1sen!2sus
       </ol>
 

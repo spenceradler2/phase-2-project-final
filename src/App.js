@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import TravelPlanList from "./TravelPlanList.jsx";
-import NewTravelForm from "./NewTravelForm";
-import Navbar from './Navbar'
+import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar.jsx"
 
 function App() {
 
@@ -9,7 +8,7 @@ function App() {
   const [term, setTerm] = useState("")
   let viewedTravelPlans
 
-  function addTravelPlans(newTravelPlan){
+  function addTravelPlan(newTravelPlan){
     setTravelPlans([...travelPlans, newTravelPlan])
   }
 
@@ -20,24 +19,21 @@ function App() {
     }, [])
 
       
-      if(term === "Type a name to search for someone's travel plans...") {
+      if(term === "search...") {
         viewedTravelPlans = travelPlans
       } else {
-        viewedTravelPlans = travelPlans.filter(travelPlan => travelPlans.name.toLowerCase().includes(term.toLowerCase()))
+        viewedTravelPlans = travelPlans.filter(travelPlan => travelPlan.name.toLowerCase().includes(term.toLowerCase()))
       }
 
   return (
     <div className="app">
-    <h1>Welcome to the travel plan website where you can share your travel plans and see everyone else's upcoming travel plans</h1>
     <Navbar />
-    <NewTravelForm 
-      addTravelPlans={addTravelPlans}
-      />
-    <TravelPlanList 
-        travelPlans = {viewedTravelPlans}
-        setTerm={setTerm}
-        term={term}
-      />
+      <Outlet context={{
+        travelPlans : viewedTravelPlans,
+        addTravelPlan : addTravelPlan,
+        setTerm : setTerm,
+        term : term,
+         }}/>
     </div>
     
 )}

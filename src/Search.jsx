@@ -6,13 +6,13 @@ function Search({ setTerm, term }) {
   }
   return (
     <div className="searchbar">
-      <label htmlFor="search">Search for a person's travel plans:</label>
+      <label htmlFor="search">Search for a person's travel plans:  </label>
       <input
         type="text"
         id="search"
         value={term}
         onChange={handleChangeSearch}
-        placeholder="Type a name to search for someone's travel plans..."
+        placeholder="search..."
       />
     </div>
   );
